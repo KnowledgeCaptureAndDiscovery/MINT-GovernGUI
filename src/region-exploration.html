@@ -11,7 +11,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/webcomponentsjs/webcomponents-lite.js">
 
+<link rel="import" href="../bower_components/neon-animation/web-animations.html">
 
 <dom-module id="region-exploration">
   <template>
@@ -23,12 +28,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
+    <iron-ajax
+            id="getHistoricalData"
+            auto
+            url="http://localhost:3001/api/random-quote"
+            method="get"
+            handle-as="json"
+            last-response="{{quote}}">
+    </iron-ajax>
+
     <div class="card">
-      <div class="card">
-        <h1>Regions</h1>
+      <h1>Regions</h1>
+      <paper-dropdown-menu label="Region">
+        <paper-listbox slot="dropdown-content" class="dropdown-content">
+          <paper-item>Africa</paper-item>
+          <paper-item>South Sudan</paper-item>
+        </paper-listbox>
+      </paper-dropdown-menu>
         <blockquote>[[quote]]</blockquote>
-        <paper-button raised on-tap="getQuote" class="primary">Get Historical Data</paper-button>
-      </div>
+        <paper-button raised on-tap="getHistoricalData" class="primary">Get Historical Data</paper-button>
+      <paper-button raised on-tap="getHistoricalData" class="primary">Generate New Data</paper-button>
     </div>
   </template>
 
@@ -36,8 +55,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     class RegionExploration extends Polymer.Element {
       static get is() { return 'region-exploration'; }
 
-      getQuote() {
-          alert('hello');
+      getHistoricalData() {
+         this.$.getHistoricalData.generateRequest();
       }
     }
 

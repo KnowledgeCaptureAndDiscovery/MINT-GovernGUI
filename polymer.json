@@ -3,7 +3,7 @@
   "shell": "src/my-app.html",
   "fragments": [
     "src/region-exploration.html",
-    "src/my-view2.html",
+    "src/question-panel.html",
     "src/my-view3.html",
     "src/my-view404.html"
   ],
