@@ -4,7 +4,7 @@
   "fragments": [
     "src/region-exploration.html",
     "src/question-panel.html",
-    "src/my-view3.html",
+    "src/task-panel.html",
     "src/my-view404.html"
   ],
   "sources": [

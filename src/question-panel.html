@@ -10,7 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
-
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="lazy-import" href="task-panel.html">
 <dom-module id="question-panel">
   <template>
     <style include="shared-styles">
@@ -20,17 +22,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 10px;
       }
     </style>
+    <app-location
+            route="{{route}}"
+            url-space-regex="^[[rootPath]]">
+    </app-location>
 
+    <app-route
+            route="{{route}}"
+            pattern="[[rootPath]]:page"
+            data="{{routeData}}"
+            tail="{{subroute}}">
+    </app-route>
     <div class="card">
       <h1>Question Panel</h1>
       <paper-button raised on-tap="getHistoricalData" class="primary">Prognostic Pongo</paper-button>
-      <paper-button raised on-tap="getHistoricalData" class="primary">Counter Factual</paper-button>
+      <a name="task-panel" href="task-panel"><paper-button raised class="primary">Counter Factual</paper-button></a>
+      <a name="task-panel" href="task-panel"> <paper-icon-button icon="trending-flat" style="color: blue;" ></paper-icon-button></a>
     </div>
   </template>
 
   <script>
     class QuestionPanel extends Polymer.Element {
-      static get is() { return 'question-panel'; }
+      static get is() { return 'question-panel';
+      }
     }
 
     window.customElements.define(QuestionPanel.is, QuestionPanel);

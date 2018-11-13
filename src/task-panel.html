@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 
-<dom-module id="my-view3">
+<dom-module id="task-panel">
   <template>
     <style include="shared-styles">
       :host {
@@ -23,19 +23,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
     <div class="card">
-      <div class="circle">3</div>
-      <h1>View Three</h1>
-      <paper-button raised >raised</paper-button>
-      <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+      <h1>Task Panel</h1>
+      <paper-button raised on-tap="getHistoricalData" class="primary">Create Scenarios</paper-button>
+      <paper-button raised on-tap="getHistoricalData" class="primary">Generate New Data</paper-button>
     </div>
   </template>
 
   <script>
-    class MyView3 extends Polymer.Element {
-      static get is() { return 'my-view3'; }
+    class TaskPanel extends Polymer.Element {
+      static get is() { return 'task-panel'; }
     }
 
-    window.customElements.define(MyView3.is, MyView3);
+    window.customElements.define(TaskPanel.is, TaskPanel);
   </script>
 </dom-module>
