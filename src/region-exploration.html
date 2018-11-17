@@ -15,6 +15,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/webcomponentsjs/webcomponents-lite.js">
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/google-apis/google-apis.html">
+<link rel="import" href="../bower_components/google-map/google-map-marker.html">
 
 <link rel="import" href="../bower_components/neon-animation/web-animations.html">
 
@@ -25,6 +28,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
 
         padding: 10px;
+      }
+      google-map, #mapResults {
+        margin-top: 0px;
+        position: relative;
+        height: 40vh;
+        width: 100vh%;
+        z-index: 2;
       }
     </style>
 
@@ -38,6 +48,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </iron-ajax>
 
     <div class="card">
+      <google-map latitude="37.77493" longitude="-122.41942" fit-to-markers>
+        <google-map-marker slot="markers" latitude="37.779" longitude="-122.3892" draggable="true" title="Go Giants!">
+        </google-map-marker>
+        <google-map-marker slot="markers" latitude="37.777" longitude="-122.38911">
+        </google-map-marker>
+      </google-map>
+
+
       <h1>Regions</h1>
       <paper-dropdown-menu label="Region">
         <paper-listbox slot="dropdown-content" class="dropdown-content">
